@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMY Agency × Ihr Nachhilfe-Institut</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1c1917;
+  --paper: #faf8f5;
+  --warm: #f2ebe0;
+  --green: #2d5a3d;
+  --green-light: #3d7a54;
+  --gold: #c8a96e;
+  --muted: #78716c;
+  --border: #e5ddd0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.label::before { content: ''; width: 28px; height: 1px; background: var(--gold); display: block; }
+
+h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+h2 em { font-style: italic; color: var(--green); }
+
+.lead { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.7; }
+
+section { padding: 100px 0; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+/* HERO */
+.hero {
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.hero-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 48px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(44px, 7vw, 88px);
+  line-height: 1.05;
+  color: var(--paper);
+  max-width: 800px;
+  margin-bottom: 36px;
+}
+.hero-title em { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(250,248,245,0.5);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 52px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--green);
+  color: var(--paper);
+  padding: 16px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s;
+}
+.hero-cta:hover { background: var(--green-light); }
+
+.hero-strip {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.strip-item {
+  padding: 32px 48px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.strip-item:last-child { border-right: none; }
+
+.strip-num {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--paper);
+  margin-bottom: 4px;
+}
+.strip-text { font-size: 12px; color: rgba(250,248,245,0.4); line-height: 1.5; }
+
+/* PROBLEM */
+.problem-section { background: var(--warm); }
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 60px;
+}
+
+.problem-card { background: var(--warm); padding: 48px 36px; }
+
+.prob-num {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.prob-title { font-size: 17px; font-weight: 500; margin-bottom: 12px; }
+.prob-text { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+/* LEISTUNGEN */
+.leistung { padding: 100px 0; border-bottom: 1px solid var(--border); }
+
+.leistung-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.leistung-inner.reverse { direction: rtl; }
+.leistung-inner.reverse > * { direction: ltr; }
+
+.leistung-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid var(--green);
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+.leistung h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.leistung-desc { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.feature-list li:last-child { border-bottom: none; }
+
+.fi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-top: 6px; flex-shrink: 0; }
+
+.leistung-visual {
+  background: var(--ink);
+  padding: 52px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+.leistung-visual::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,169,110,0.1);
+}
+
+.visual-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,248,245,0.35);
+  margin-bottom: 32px;
+}
+
+.visual-item {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.visual-item:last-child { border-bottom: none; }
+
+.visual-icon {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(200,169,110,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.visual-item-text { font-size: 14px; color: rgba(250,248,245,0.7); line-height: 1.4; }
+.visual-item-text strong { display: block; color: var(--paper); font-weight: 500; margin-bottom: 2px; }
+
+/* PRINT */
+.print-section { background: var(--warm); }
+
+.print-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 60px;
+}
+
+.print-card { background: var(--warm); padding: 44px 36px; }
+
+.print-type {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.print-qty {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.print-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.print-tip {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  background: #d4edda;
+  color: #1a4d2e;
+  padding: 4px 10px;
+  font-weight: 500;
+}
+
+/* PREISE */
+.price-section { background: var(--ink); color: var(--paper); }
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  margin-top: 60px;
+}
+
+.price-card { background: var(--ink); padding: 52px 40px; transition: background 0.2s; }
+.price-card:hover { background: #231f1b; }
+.price-card.featured { background: var(--green); }
+.price-card.featured:hover { background: var(--green-light); }
+
+.price-card-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,248,245,0.4);
+  margin-bottom: 16px;
+}
+.price-card.featured .price-card-label { color: rgba(250,248,245,0.6); }
+
+.price-card-name {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--paper);
+  margin-bottom: 32px;
+  line-height: 1.3;
+}
+
+.price-amount {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--paper);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price-unit { font-size: 13px; color: rgba(250,248,245,0.4); margin-bottom: 32px; }
+
+.price-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+.price-features li {
+  font-size: 13px;
+  color: rgba(250,248,245,0.55);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.price-features li::before { content: '–'; color: var(--gold); flex-shrink: 0; }
+
+/* TOTAL */
+.total-bar { border-top: 1px solid rgba(255,255,255,0.07); background: #141210; }
+
+.total-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 0;
+}
+
+.total-col {
+  padding: 32px 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  padding-right: 40px;
+  margin-right: 40px;
+}
+.total-col:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+.total-col-label { font-size: 11px; color: rgba(250,248,245,0.35); margin-bottom: 6px; }
+.total-col-val { font-size: 16px; font-weight: 500; color: rgba(250,248,245,0.8); }
+
+.total-final { padding-left: 40px; border-left: 1px solid rgba(255,255,255,0.06); }
+.total-final-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,248,245,0.3); margin-bottom: 8px; }
+.total-final-num {
+  font-family: 'Fraunces', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: var(--paper);
+  line-height: 1;
+}
+
+.hosting-note {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(250,248,245,0.2);
+  padding: 0 48px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* KONTAKT */
+.contact-section { padding: 100px 0; }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 60px;
+}
+
+.step {
+  display: flex;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; }
+
+.step-num {
+  width: 40px; height: 40px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.step-title { font-size: 16px; font-weight: 500; margin-bottom: 6px; }
+.step-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+.contact-info { background: var(--ink); padding: 52px 44px; color: var(--paper); }
+
+.contact-info-title {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  color: var(--paper);
+}
+
+.contact-info-sub { font-size: 14px; color: rgba(250,248,245,0.45); margin-bottom: 40px; line-height: 1.6; }
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 14px;
+  color: rgba(250,248,245,0.7);
+}
+.contact-detail:last-child { border-bottom: none; }
+.c-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* FOOTER */
+footer {
+  background: #0f0d0b;
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-brand { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 300; color: var(--paper); }
+.footer-note { font-size: 11px; color: rgba(250,248,245,0.2); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .wrap { padding: 0 24px; }
+  .hero-body { padding: 80px 24px 48px; }
+  .hero-strip { grid-template-columns: 1fr; }
+  .strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .problem-grid, .print-grid, .price-grid { grid-template-columns: 1fr; }
+  .leistung-inner, .leistung-inner.reverse { grid-template-columns: 1fr; direction: ltr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .total-inner { grid-template-columns: 1fr; padding: 24px; }
+  .total-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 20px; margin-bottom: 20px; }
+  .total-final { border-left: none; padding-left: 0; }
+  footer { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-body">
+    <div class="hero-eyebrow">SMY Agency — Individuelles Angebot</div>
+    <h1 class="hero-title">Ihr digitales<br>Fundament.<br><em>Professionell.</em></h1>
+    <p class="hero-sub">Maßgeschneiderte Website, interne Verwaltungsplattform und Printdesign für Ihr Nachhilfeinstitut in Hannover.</p>
+    <a href="#problem" class="hero-cta">Angebot entdecken ↓</a>
+  </div>
+  <div class="hero-strip">
+    <div class="strip-item">
+      <div class="strip-num">2</div>
+      <div class="strip-text">Digitale Lösungen<br>in einem Paket</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">4 Wo.</div>
+      <div class="strip-text">Bis zur vollständigen<br>Umsetzung</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">∞</div>
+      <div class="strip-text">Skalierbar für<br>mehrere Standorte</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-section" id="problem">
+  <div class="wrap">
+    <div class="label">Das Problem heute</div>
+    <h2>Was Sie täglich<br><em>Zeit und Nerven</em> kostet.</h2>
+    <p class="lead">Nachhilfeinstitute mit Förderschülern tragen eine enorme administrative Last — ohne die richtigen Tools ist das pures Chaos.</p>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <div class="prob-num">01</div>
+        <div class="prob-title">Dokumentationschaos</div>
+        <p class="prob-text">Staatlich geförderte Kinder (ADS, Autismus) erfordern lückenlose Nachweise. Aktuell: Zettel, E-Mails, Excel — überall Fehlerquellen.</p>
+      </div>
+      <div class="problem-card">
+        <div class="prob-num">02</div>
+        <div class="prob-title">Honorarrechnungen manuell</div>
+        <p class="prob-text">Jede Honorarkraft schickt ihre Rechnung anders. Monatliches Chaos statt klarer, standardisierter Prozesse.</p>
+      </div>
+      <div class="problem-card">
+        <div class="prob-num">03</div>
+        <div class="prob-title">Kein professioneller Auftritt</div>
+        <p class="prob-text">Eltern suchen Nachhilfe online. Ohne Website verlieren Sie täglich Anfragen an die Konkurrenz — still und unbemerkt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNG 1: WEBSITE -->
+<section class="leistung">
+  <div class="wrap">
+    <div class="leistung-inner reveal">
+      <div>
+        <span class="leistung-tag">Leistung 01</span>
+        <h3>Öffentliche<br>Info-Website</h3>
+        <p class="leistung-desc">Ihr professioneller Auftritt im Netz. Eltern finden Sie — und vertrauen Ihnen, bevor sie anrufen. Lokal optimiert für Hannover, bereit für die Expansion.</p>
+        <ul class="feature-list">
+          <li><div class="fi-dot"></div> Bis zu 5 Seiten (Start, Angebote, Über uns, Kontakt, FAQ)</li>
+          <li><div class="fi-dot"></div> Mobil-optimiert für Smartphone & Tablet</li>
+          <li><div class="fi-dot"></div> SEO-Basis: Google findet Sie lokal in Hannover</li>
+          <li><div class="fi-dot"></div> Kontaktformular für direkte Anfragen</li>
+          <li><div class="fi-dot"></div> Impressum & Datenschutz rechtskonform</li>
+          <li><div class="fi-dot"></div> Hosting, Domain & Updates inklusive</li>
+          <li><div class="fi-dot"></div> Mindestlaufzeit 12 Monate</li>
+        </ul>
+      </div>
+      <div class="leistung-visual">
+        <div class="visual-title">Was Eltern sehen</div>
+        <div class="visual-item">
+          <div class="visual-icon">🏠</div>
+          <div class="visual-item-text"><strong>Startseite</strong>Sofortiger Eindruck, Vertrauen, klare Botschaft</div>
+        </div>
+        <div class="visual-item">
+          <div class="visual-icon">📚</div>
+          <div class="visual-item-text"><strong>Angebote</strong>Fächer, Altersgruppen, Spezialisierung (ADS, Autismus)</div>
+        </div>
+        <div class="visual-item">
+          <div class="visual-icon">📍</div>
+          <div class="visual-item-text"><strong>Standort & Kontakt</strong>Hannover lokal — erweiterbar auf weitere Standorte</div>
+        </div>
+        <div class="visual-item">
+          <div class="visual-icon">✉️</div>
+          <div class="visual-item-text"><strong>Anfrage-Formular</strong>Direkter Kontakt, kein Anruf nötig</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNG 2: PLATTFORM -->
+<section class="leistung" style="background: var(--warm);">
+  <div class="wrap">
+    <div class="leistung-inner reverse reveal">
+      <div>
+        <span class="leistung-tag">Leistung 02</span>
+        <h3>Interne<br>Verwaltungsplattform</h3>
+        <p class="leistung-desc">Das digitale Rückgrat Ihres Instituts. Chef, Lehrkräfte und Honorarkräfte — jeder hat seinen eigenen Bereich. Sie behalten den Überblick.</p>
+        <ul class="feature-list">
+          <li><div class="fi-dot"></div> Schüler-Stammdaten & Diagnosen (ADS, Autismus etc.)</li>
+          <li><div class="fi-dot"></div> Lernfortschritt pro Schüler dokumentieren</li>
+          <li><div class="fi-dot"></div> Staatl. Förderdokumentation — strukturiert & unterschriftsreif</li>
+          <li><div class="fi-dot"></div> Lehrkräfte-Login: Fächer & Schüler selbst verwalten</li>
+          <li><div class="fi-dot"></div> Digitale Unterschrift der Lehrkraft je Stunde</li>
+          <li><div class="fi-dot"></div> Honorarkraft-Modul: Rechnung per Klick (1x/Monat)</li>
+          <li><div class="fi-dot"></div> Admin-Dashboard: Chef sieht alles zentral</li>
+          <li><div class="fi-dot"></div> DSGVO-konform, rollenbasierte Zugriffsrechte</li>
+        </ul>
+      </div>
+      <div class="leistung-visual">
+        <div class="visual-title">Wer was sieht</div>
+        <div class="visual-item">
+          <div class="visual-icon">👑</div>
+          <div class="visual-item-text"><strong>Chef / Admin</strong>Alle Schüler, alle Lehrkräfte, alle Rechnungen auf einen Blick</div>
+        </div>
+        <div class="visual-item">
+          <div class="visual-icon">👩‍🏫</div>
+          <div class="visual-item-text"><strong>Lehrkraft</strong>Eigene Schüler, Stunden eintragen, Lernstand dokumentieren</div>
+        </div>
+        <div class="visual-item">
+          <div class="visual-icon">🧾</div>
+          <div class="visual-item-text"><strong>Honorarkraft</strong>Monatsrechnung direkt in der App — standardisiert</div>
+        </div>
+        <div class="visual-item">
+          <div class="visual-icon">📋</div>
+          <div class="visual-item-text"><strong>Förderdoku</strong>Staatlich anerkannte Nachweise automatisch strukturiert</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINT -->
+<section class="print-section">
+  <div class="wrap">
+    <div class="label">Design & Print</div>
+    <h2>Ihr Auftritt<br>auch <em>offline.</em></h2>
+    <p class="lead">Professionelles Flyer-Design und Druck — für Schulen, Arztpraxen und Beratungsstellen in Hannover.</p>
+    <div class="print-grid reveal">
+      <div class="print-card">
+        <div class="print-type">Flyer Design</div>
+        <div class="print-qty">Design für alle Formate</div>
+        <p class="print-desc">Professionelles druckfertiges Design für A5 und A4. Einheitlich, ansprechend, zur Website passend.</p>
+      </div>
+      <div class="print-card">
+        <div class="print-type">A5 Flyer · Druck</div>
+        <div class="print-qty">1.000 Stück</div>
+        <p class="print-desc">Ideal für lokale Verteilung. Hohe Auflage für breite Streuung in Hannover und Umgebung.</p>
+      </div>
+      <div class="print-card">
+        <div class="print-type">A4 Flyer · Druck</div>
+        <div class="print-qty">500 Stück</div>
+        <p class="print-desc">Für Aushänge und Auslagen. 500 statt 250 Stück — nur 15 € mehr für doppelte Menge.</p>
+        <span class="print-tip">Empfehlung: 500 statt 250 Stk.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="leistung">
+  <div class="wrap">
+    <div class="label">Leistung 03 & 04</div>
+    <h2>Marketing das<br><em>Kunden bringt.</em></h2>
+    <p class="lead">Social Media Strategie und bezahlte Werbung — damit Eltern und Schüler in Hannover Sie finden, bevor sie die Konkurrenz finden.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); margin-top: 60px;">
+
+      <div style="background: var(--paper); padding: 48px 40px;">
+        <span class="leistung-tag">Leistung 03</span>
+        <h3 style="font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 2.5vw, 32px); line-height: 1.2; margin-bottom: 16px;">Social Media<br>Strategie</h3>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px;">Sie haben bereits jemanden vor der Kamera und fürs Schneiden — wir liefern die Ideen, den Plan und das Briefing. Kreativer Kopf im Hintergrund.</p>
+        <ul class="feature-list">
+          <li><div class="fi-dot"></div> Monatlicher Content-Plan (Themen, Hooks, Formate)</li>
+          <li><div class="fi-dot"></div> Briefings für Drehs & Reels</li>
+          <li><div class="fi-dot"></div> 1x Strategiecall pro Monat</li>
+          <li><div class="fi-dot"></div> Plattform-Fokus: Instagram & TikTok</li>
+          <li><div class="fi-dot"></div> Zielgruppe: Eltern + Schüler 14+</li>
+        </ul>
+      </div>
+
+      <div style="background: var(--warm); padding: 48px 40px;">
+        <span class="leistung-tag">Leistung 04</span>
+        <h3 style="font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 2.5vw, 32px); line-height: 1.2; margin-bottom: 16px;">Ads Beratung<br>Google & Meta</h3>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px;">Strategie, Setup und laufende Begleitung für bezahlte Werbung. Eltern finden Sie über Google — Schüler und Eltern über Meta.</p>
+        <ul class="feature-list">
+          <li><div class="fi-dot"></div> Ads-Strategie & Kampagnen-Setup</li>
+          <li><div class="fi-dot"></div> Google Ads — Eltern (aktive Suche)</li>
+          <li><div class="fi-dot"></div> Meta Ads — Eltern & Schüler 14+</li>
+          <li><div class="fi-dot"></div> Monatliches Reporting & Optimierung</li>
+          <li><div class="fi-dot"></div> Empfohlenes Ads-Budget: 700 €/Monat*</li>
+        </ul>
+        <p style="font-size: 11px; color: var(--muted); margin-top: 16px;">* Google 400 € + Meta 300 € — direkt an die Plattformen, nicht an SMY Agency</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PREISE -->
+<section class="price-section" id="preise">
+  <div class="wrap">
+    <div class="label" style="color: rgba(200,169,110,0.7);">
+      <span style="background: var(--gold); width: 28px; height: 1px; display: block;"></span>
+      Investition
+    </div>
+    <h2 style="color: var(--paper);">Klare Preise.<br><em style="color: var(--gold);">Kein Overhead.</em></h2>
+    <p class="lead" style="color: rgba(250,248,245,0.45);">Hosting inklusive. Ads-Budget geht direkt an Google & Meta — nicht an uns.</p>
+  </div>
+
+  <div style="max-width: 1100px; margin: 60px auto 0; padding: 0 48px;">
+
+    <!-- ZWEI SPALTEN: Einmalig | Monatlich -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.06);">
+
+      <!-- EINMALIG -->
+      <div style="background: var(--ink); padding: 52px 44px;">
+        <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px;">Einmalig</div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <div>
+            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Interne Plattform</div>
+            <div style="font-size: 12px; color: rgba(250,248,245,0.4); margin-top: 2px;">Schüler, Docs, Lehrkräfte, Honorare</div>
+          </div>
+          <div style="font-size: 16px; color: rgba(250,248,245,0.8);">3.500 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <div>
+            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Flyer Design + Druck</div>
+            <div style="font-size: 12px; color: rgba(250,248,245,0.4); margin-top: 2px;">Design + A5 (1.000 Stk.) + A4 (500 Stk.)</div>
+          </div>
+          <div style="font-size: 16px; color: rgba(250,248,245,0.8);">340 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
+          <div style="font-size: 13px; color: rgba(250,248,245,0.4);">Zwischensumme</div>
+          <div style="font-size: 14px; color: rgba(250,248,245,0.4); text-decoration: line-through;">3.840 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+          <div style="font-size: 13px; color: #86efac;">10% Rabatt</div>
+          <div style="font-size: 14px; color: #86efac;">− 384 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 24px;">
+          <div style="font-size: 13px; color: rgba(250,248,245,0.4);">Sie zahlen</div>
+          <div>
+            <span style="font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300; color: var(--paper);">3.456</span>
+            <span style="font-size: 14px; color: rgba(250,248,245,0.4);"> €</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MONATLICH -->
+      <div style="background: var(--green); padding: 52px 44px;">
+        <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,248,245,0.6); margin-bottom: 32px;">Monatlich</div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div>
+            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Öffentliche Website</div>
+            <div style="font-size: 12px; color: rgba(250,248,245,0.5); margin-top: 2px;">Hosting & Updates inklusive · 12 Monate</div>
+          </div>
+          <div style="font-size: 16px; color: rgba(250,248,245,0.9);">150 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div>
+            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Social Media Strategie</div>
+            <div style="font-size: 12px; color: rgba(250,248,245,0.5); margin-top: 2px;">Content-Plan, Briefings, Strategiecall</div>
+          </div>
+          <div style="font-size: 16px; color: rgba(250,248,245,0.9);">500 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div>
+            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Ads Beratung</div>
+            <div style="font-size: 12px; color: rgba(250,248,245,0.5); margin-top: 2px;">Google + Meta · Setup & Optimierung</div>
+          </div>
+          <div style="font-size: 16px; color: rgba(250,248,245,0.9);">600 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.15);">
+          <div style="font-size: 13px; color: rgba(250,248,245,0.5);">Zwischensumme</div>
+          <div style="font-size: 14px; color: rgba(250,248,245,0.5); text-decoration: line-through;">1.250 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div style="font-size: 13px; color: #86efac;">10% Rabatt</div>
+          <div style="font-size: 14px; color: #86efac;">− 125 €</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 24px;">
+          <div style="font-size: 13px; color: rgba(250,248,245,0.5);">Sie zahlen</div>
+          <div>
+            <span style="font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300; color: var(--paper);">1.125</span>
+            <span style="font-size: 14px; color: rgba(250,248,245,0.5);"> €/Monat</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ADS BUDGET HINWEIS -->
+    <div style="background: #141210; padding: 20px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <div style="font-size: 13px; color: rgba(250,248,245,0.4);">+ Ads-Budget direkt an Google & Meta (nicht an SMY Agency)</div>
+      <div style="font-size: 15px; font-weight: 500; color: rgba(250,248,245,0.6);">Google 400 € + Meta 300 € = <span style="color: var(--paper);">700 €/Monat</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="contact-section">
+  <div class="wrap">
+    <div class="label">Nächste Schritte</div>
+    <h2>So geht es<br><em>weiter.</em></h2>
+    <div class="contact-inner reveal">
+      <div>
+        <div class="step">
+          <div class="step-num">01</div>
+          <div><div class="step-title">Erstgespräch</div><p class="step-text">Wir klären Ihre genauen Anforderungen, Wünsche und den Zeitplan. Kostenfrei und unverbindlich.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div><div class="step-title">Flyer Design (Woche 1)</div><p class="step-text">Design-Entwürfe für A5 und A4, Freigabe, Druckauftrag wird gestartet.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div><div class="step-title">Website & Plattform (Woche 2–3)</div><p class="step-text">Öffentliche Website geht live. Plattform wird mit allen Modulen aufgebaut und getestet.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div><div class="step-title">Übergabe & Einweisung (Woche 4)</div><p class="step-text">Alles live. Ihr Team wird eingewiesen. Flyer sind fertig. Sie sind startklar.</p></div>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-title">Bereit loszulegen?</div>
+        <p class="contact-info-sub">Schreiben Sie uns oder rufen Sie direkt an — wir melden uns innerhalb von 24 Stunden.</p>
+        <div class="contact-detail"><div class="c-dot"></div> info@smyagency.de</div>
+        <div class="contact-detail"><div class="c-dot"></div> +49 1523 6137216</div>
+        <div class="contact-detail"><div class="c-dot"></div> smyagency.de</div>
+        <div class="contact-detail"><div class="c-dot"></div> Hannover & bundesweit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SMY Agency</div>
+  <div class="footer-note">Dieses Angebot ist vertraulich und wurde individuell erstellt · info@smyagency.de</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
