@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMY Agency × Ihr Nachhilfe-Institut</title>
+<title>SMY Agency × MJ Lernförderung</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -28,6 +28,57 @@ body {
   font-size: 16px;
   line-height: 1.6;
 }
+
+/* NAV */
+.sticky-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(28,25,23,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 56px;
+}
+
+.nav-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--paper);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: rgba(250,248,245,0.45);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--paper); background: rgba(255,255,255,0.06); }
+.nav-links a.active-nav { color: var(--paper); }
+
+.nav-links a.highlight {
+  background: var(--green);
+  color: var(--paper) !important;
+  font-weight: 500;
+  padding: 6px 16px;
+}
+.nav-links a.highlight:hover { background: var(--green-light); }
 
 .label {
   font-size: 10px;
@@ -64,6 +115,7 @@ section { padding: 100px 0; }
   min-height: 100vh;
   display: grid;
   grid-template-rows: 1fr auto;
+  padding-top: 56px;
 }
 
 .hero-body {
@@ -104,6 +156,8 @@ section { padding: 100px 0; }
   margin-bottom: 52px;
 }
 
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -120,10 +174,26 @@ section { padding: 100px 0; }
 }
 .hero-cta:hover { background: var(--green-light); }
 
+.hero-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(200,169,110,0.4);
+  color: var(--gold);
+  padding: 16px 32px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.2s;
+}
+.hero-cta-outline:hover { border-color: var(--gold); background: rgba(200,169,110,0.08); }
+
 .hero-strip {
   border-top: 1px solid rgba(255,255,255,0.08);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .strip-item {
@@ -306,6 +376,321 @@ section { padding: 100px 0; }
   font-weight: 500;
 }
 
+/* ══════════════════════════════════════════
+   MARKETING STRATEGIE SECTION
+══════════════════════════════════════════ */
+
+.mkt-hero {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 100px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mkt-hero::before {
+  content: 'MARKETING';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Fraunces', serif;
+  font-size: 160px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.03);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.mkt-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 60px;
+}
+
+.mkt-problem-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 40px 36px;
+  position: relative;
+}
+
+.mkt-problem-card h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--paper);
+  margin-bottom: 20px;
+}
+
+.mkt-problem-item {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px;
+  color: rgba(250,248,245,0.55);
+  line-height: 1.5;
+}
+.mkt-problem-item:last-child { border-bottom: none; }
+
+.mkt-problem-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.mkt-usp-block { display: flex; flex-direction: column; gap: 24px; }
+
+.mkt-usp-item {
+  border-left: 2px solid var(--gold);
+  padding-left: 24px;
+}
+
+.mkt-usp-item h5 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+  margin-bottom: 6px;
+}
+
+.mkt-usp-item p {
+  font-size: 13px;
+  color: rgba(250,248,245,0.45);
+  line-height: 1.6;
+}
+
+/* STRATEGIE PHASEN */
+.mkt-phasen {
+  padding: 100px 0;
+  background: var(--paper);
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 60px;
+}
+
+.phase-card {
+  background: var(--paper);
+  padding: 48px 36px;
+  position: relative;
+}
+
+.phase-num {
+  font-family: 'Fraunces', serif;
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.phase-tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--green);
+  color: var(--paper);
+  padding: 4px 10px;
+  margin-bottom: 16px;
+}
+
+.phase-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 22px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.phase-duration {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.phase-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
+
+.phase-items li {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.phase-items li:last-child { border-bottom: none; }
+.phase-items li::before { content: '→'; color: var(--green); flex-shrink: 0; }
+
+/* KANÄLE */
+.mkt-kanaele {
+  background: var(--warm);
+  padding: 100px 0;
+}
+
+.kanaele-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 60px;
+}
+
+.kanal-card {
+  background: var(--warm);
+  padding: 48px 40px;
+}
+
+.kanal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kanal-icon {
+  width: 48px; height: 48px;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.kanal-title-block h4 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.kanal-title-block span {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.kanal-ziel {
+  background: var(--paper);
+  border-left: 2px solid var(--green);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.kanal-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.kanal-items li {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.kanal-items li:last-child { border-bottom: none; }
+.kanal-items li .fi-dot { margin-top: 5px; }
+
+/* CONTENT PLAN */
+.mkt-content {
+  padding: 100px 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+.content-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,248,245,0.3);
+  padding: 0 24px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.content-table th:first-child { padding-left: 0; }
+
+.content-table td {
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: rgba(250,248,245,0.65);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.content-table td:first-child { padding-left: 0; }
+
+.content-table tr:last-child td { border-bottom: none; }
+
+.content-table td strong {
+  display: block;
+  color: var(--paper);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.content-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+.tag-ig { background: rgba(167,139,250,0.15); color: #c4b5fd; }
+.tag-tk { background: rgba(251,191,36,0.12); color: #fbbf24; }
+.tag-both { background: rgba(52,211,153,0.12); color: #6ee7b7; }
+
+/* ROI */
+.mkt-roi {
+  background: var(--warm);
+  padding: 100px 0;
+}
+
+.roi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--border);
+  margin-top: 60px;
+}
+
+.roi-card { background: var(--warm); padding: 44px 32px; }
+
+.roi-num {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.roi-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.roi-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
 /* PREISE */
 .price-section { background: var(--ink); color: var(--paper); }
 
@@ -364,49 +749,6 @@ section { padding: 100px 0; }
 }
 .price-features li::before { content: '–'; color: var(--gold); flex-shrink: 0; }
 
-/* TOTAL */
-.total-bar { border-top: 1px solid rgba(255,255,255,0.07); background: #141210; }
-
-.total-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  align-items: center;
-  gap: 0;
-}
-
-.total-col {
-  padding: 32px 0;
-  border-right: 1px solid rgba(255,255,255,0.06);
-  padding-right: 40px;
-  margin-right: 40px;
-}
-.total-col:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-
-.total-col-label { font-size: 11px; color: rgba(250,248,245,0.35); margin-bottom: 6px; }
-.total-col-val { font-size: 16px; font-weight: 500; color: rgba(250,248,245,0.8); }
-
-.total-final { padding-left: 40px; border-left: 1px solid rgba(255,255,255,0.06); }
-.total-final-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,248,245,0.3); margin-bottom: 8px; }
-.total-final-num {
-  font-family: 'Fraunces', serif;
-  font-size: 52px;
-  font-weight: 300;
-  color: var(--paper);
-  line-height: 1;
-}
-
-.hosting-note {
-  text-align: center;
-  font-size: 12px;
-  color: rgba(250,248,245,0.2);
-  padding: 0 48px 32px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
 /* KONTAKT */
 .contact-section { padding: 100px 0; }
 
@@ -441,76 +783,81 @@ section { padding: 100px 0; }
 .step-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
 .contact-info { background: var(--ink); padding: 52px 44px; color: var(--paper); }
-
-.contact-info-title {
-  font-family: 'Fraunces', serif;
-  font-size: 28px;
-  font-weight: 300;
-  margin-bottom: 8px;
-  color: var(--paper);
-}
-
+.contact-info-title { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; margin-bottom: 8px; }
 .contact-info-sub { font-size: 14px; color: rgba(250,248,245,0.45); margin-bottom: 40px; line-height: 1.6; }
-
-.contact-detail {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  font-size: 14px;
-  color: rgba(250,248,245,0.7);
-}
+.contact-detail { display: flex; align-items: center; gap: 14px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 14px; color: rgba(250,248,245,0.7); }
 .contact-detail:last-child { border-bottom: none; }
 .c-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
 /* FOOTER */
-footer {
-  background: #0f0d0b;
-  padding: 28px 48px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+footer { background: #0f0d0b; padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-brand { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 300; color: var(--paper); }
 .footer-note { font-size: 11px; color: rgba(250,248,245,0.2); }
 
-/* REVEAL */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* RESPONSIVE */
-@media (max-width: 860px) {
-  .wrap { padding: 0 24px; }
-  .hero-body { padding: 80px 24px 48px; }
-  .hero-strip { grid-template-columns: 1fr; }
-  .strip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .problem-grid, .print-grid, .price-grid { grid-template-columns: 1fr; }
-  .leistung-inner, .leistung-inner.reverse { grid-template-columns: 1fr; direction: ltr; }
+@media (max-width: 900px) {
+  .sticky-nav { padding: 0 12px; height: auto; flex-wrap: wrap; gap: 8px; padding-top: 10px; padding-bottom: 10px; }
+  .nav-brand { font-size: 12px; }
+  .nav-links { gap: 2px; flex-wrap: wrap; }
+  .nav-links a { font-size: 10px; padding: 4px 8px; }
+  .wrap { padding: 0 20px; }
+  .hero { padding-top: 80px; }
+  .hero-body { padding: 60px 20px 40px; }
+  .hero-strip { grid-template-columns: repeat(2, 1fr); }
+  .strip-item { padding: 20px 24px; }
+  .problem-grid, .print-grid, .phase-grid, .roi-grid { grid-template-columns: 1fr; }
+  .kanaele-grid { grid-template-columns: 1fr !important; }
+  .leistung-inner, .leistung-inner.reverse, .mkt-intro-grid { grid-template-columns: 1fr; direction: ltr; }
   .contact-inner { grid-template-columns: 1fr; }
-  .total-inner { grid-template-columns: 1fr; padding: 24px; }
-  .total-col { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 20px; margin-bottom: 20px; }
-  .total-final { border-left: none; padding-left: 0; }
-  footer { padding: 24px; }
+  .content-table { display: block; overflow-x: auto; }
+  .price-inner { grid-template-columns: 1fr !important; }
+  section { padding: 60px 0; }
+  .kanal-card { padding: 28px 20px; }
+  .phase-card { padding: 28px 20px; }
+  .leistung-visual { padding: 32px 20px; }
+  footer { padding: 20px; }
+}
+
+@media (max-width: 500px) {
+  .hero-strip { grid-template-columns: repeat(2, 1fr); }
+  .nav-links a.highlight { display: none; }
+  .hero-btns { flex-direction: column; }
+  .hero-cta, .hero-cta-outline { width: 100%; text-align: center; justify-content: center; }
 }
 </style>
 </head>
 <body>
 
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-brand">SMY Agency × MJ Lernförderung</div>
+  <div class="nav-links">
+    <a href="#problem">Das Problem</a>
+    <a href="#website">Website</a>
+    <a href="#plattform">Plattform</a>
+    <a href="#marketing" class="highlight">📈 Marketing Strategie</a>
+    <a href="#preise">Preise</a>
+    <a href="#kontakt">Kontakt</a>
+  </div>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-body">
-    <div class="hero-eyebrow">SMY Agency — Individuelles Angebot</div>
-    <h1 class="hero-title">Ihr digitales<br>Fundament.<br><em>Professionell.</em></h1>
-    <p class="hero-sub">Maßgeschneiderte Website, interne Verwaltungsplattform und Printdesign für Ihr Nachhilfeinstitut in Hannover.</p>
-    <a href="#problem" class="hero-cta">Angebot entdecken ↓</a>
+    <div class="hero-eyebrow">SMY Agency — Individuelles Angebot für MJ Lernförderung</div>
+    <h1 class="hero-title">Mehr Schüler.<br>Weniger Chaos.<br><em>Wachstum.</em></h1>
+    <p class="hero-sub">Website, Verwaltungsplattform und eine Marketing-Strategie die MJ Lernförderung in Hannover zur ersten Adresse für individuelle Förderung macht.</p>
+    <div class="hero-btns">
+      <a href="#marketing" class="hero-cta">Marketing Strategie ansehen ↓</a>
+      <a href="#preise" class="hero-cta-outline">Preise & Pakete</a>
+    </div>
   </div>
   <div class="hero-strip">
     <div class="strip-item">
-      <div class="strip-num">2</div>
-      <div class="strip-text">Digitale Lösungen<br>in einem Paket</div>
+      <div class="strip-num">3</div>
+      <div class="strip-text">Lösungen in<br>einem Angebot</div>
     </div>
     <div class="strip-item">
       <div class="strip-num">4 Wo.</div>
@@ -518,7 +865,11 @@ footer {
     </div>
     <div class="strip-item">
       <div class="strip-num">∞</div>
-      <div class="strip-text">Skalierbar für<br>mehrere Standorte</div>
+      <div class="strip-text">Skalierbar für<br>weitere Standorte</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-num">+30%</div>
+      <div class="strip-text">Mehr Anfragen<br>in 90 Tagen</div>
     </div>
   </div>
 </div>
@@ -527,44 +878,27 @@ footer {
 <section class="problem-section" id="problem">
   <div class="wrap">
     <div class="label">Das Problem heute</div>
-    <h2>Was Sie täglich<br><em>Zeit und Nerven</em> kostet.</h2>
-    <p class="lead">Nachhilfeinstitute mit Förderschülern tragen eine enorme administrative Last — ohne die richtigen Tools ist das pures Chaos.</p>
-    <div class="problem-grid reveal">
-      <div class="problem-card">
-        <div class="prob-num">01</div>
-        <div class="prob-title">Dokumentationschaos</div>
-        <p class="prob-text">Staatlich geförderte Kinder (ADS, Autismus) erfordern lückenlose Nachweise. Aktuell: Zettel, E-Mails, Excel — überall Fehlerquellen.</p>
-      </div>
-      <div class="problem-card">
-        <div class="prob-num">02</div>
-        <div class="prob-title">Honorarrechnungen manuell</div>
-        <p class="prob-text">Jede Honorarkraft schickt ihre Rechnung anders. Monatliches Chaos statt klarer, standardisierter Prozesse.</p>
-      </div>
-      <div class="problem-card">
-        <div class="prob-num">03</div>
-        <div class="prob-title">Kein professioneller Auftritt</div>
-        <p class="prob-text">Eltern suchen Nachhilfe online. Ohne Website verlieren Sie täglich Anfragen an die Konkurrenz — still und unbemerkt.</p>
-      </div>
-    </div>
+    <h2>Was dich täglich<br><em>Zeit und Nerven</em> kostet.</h2>
+    <p class="lead">Nachhilfeinstitute mit Förderschülern tragen eine enorme Last — ohne die richtigen Tools und die richtige Sichtbarkeit bleibt Wachstum aus.</p>
   </div>
 </section>
 
 <!-- LEISTUNG 1: WEBSITE -->
-<section class="leistung">
+<section class="leistung" id="website">
   <div class="wrap">
     <div class="leistung-inner reveal">
       <div>
         <span class="leistung-tag">Leistung 01</span>
         <h3>Öffentliche<br>Info-Website</h3>
-        <p class="leistung-desc">Ihr professioneller Auftritt im Netz. Eltern finden Sie — und vertrauen Ihnen, bevor sie anrufen. Lokal optimiert für Hannover, bereit für die Expansion.</p>
+        <p class="leistung-desc">Dein professioneller Auftritt im Netz. Eltern finden dich — und vertrauen dir, bevor sie anrufen. Lokal optimiert für Hannover.</p>
         <ul class="feature-list">
           <li><div class="fi-dot"></div> Bis zu 5 Seiten (Start, Angebote, Über uns, Kontakt, FAQ)</li>
           <li><div class="fi-dot"></div> Mobil-optimiert für Smartphone & Tablet</li>
-          <li><div class="fi-dot"></div> SEO-Basis: Google findet Sie lokal in Hannover</li>
+          <li><div class="fi-dot"></div> SEO-Basis: Google findet dich lokal in Hannover</li>
+          <li><div class="fi-dot"></div> Spezialisierung sichtbar: LRS, ADS, Autismus, BuT-Förderung</li>
           <li><div class="fi-dot"></div> Kontaktformular für direkte Anfragen</li>
           <li><div class="fi-dot"></div> Impressum & Datenschutz rechtskonform</li>
-          <li><div class="fi-dot"></div> Hosting, Domain & Updates inklusive</li>
-          <li><div class="fi-dot"></div> Mindestlaufzeit 12 Monate</li>
+          <li><div class="fi-dot"></div> Hosting & Updates inklusive · 12 Monate Mindestlaufzeit</li>
         </ul>
       </div>
       <div class="leistung-visual">
@@ -575,11 +909,11 @@ footer {
         </div>
         <div class="visual-item">
           <div class="visual-icon">📚</div>
-          <div class="visual-item-text"><strong>Angebote</strong>Fächer, Altersgruppen, Spezialisierung (ADS, Autismus)</div>
+          <div class="visual-item-text"><strong>Angebote</strong>Fächer, Klassen 1–13, Spezialisierung (ADS, Autismus, LRS)</div>
         </div>
         <div class="visual-item">
-          <div class="visual-icon">📍</div>
-          <div class="visual-item-text"><strong>Standort & Kontakt</strong>Hannover lokal — erweiterbar auf weitere Standorte</div>
+          <div class="visual-icon">💶</div>
+          <div class="visual-item-text"><strong>BuT-Förderung</strong>Kostenlose Förderung sichtbar machen — riesiger Conversion-Booster</div>
         </div>
         <div class="visual-item">
           <div class="visual-icon">✉️</div>
@@ -591,21 +925,20 @@ footer {
 </section>
 
 <!-- LEISTUNG 2: PLATTFORM -->
-<section class="leistung" style="background: var(--warm);">
+<section class="leistung" id="plattform" style="background: var(--warm);">
   <div class="wrap">
     <div class="leistung-inner reverse reveal">
       <div>
         <span class="leistung-tag">Leistung 02</span>
         <h3>Interne<br>Verwaltungsplattform</h3>
-        <p class="leistung-desc">Das digitale Rückgrat Ihres Instituts. Chef, Lehrkräfte und Honorarkräfte — jeder hat seinen eigenen Bereich. Sie behalten den Überblick.</p>
+        <p class="leistung-desc">Das digitale Rückgrat deines Instituts. Chef, Lehrkräfte und Honorarkräfte — jeder hat seinen Bereich. Du behältst den Überblick.</p>
         <ul class="feature-list">
           <li><div class="fi-dot"></div> Schüler-Stammdaten & Diagnosen (ADS, Autismus etc.)</li>
           <li><div class="fi-dot"></div> Lernfortschritt pro Schüler dokumentieren</li>
           <li><div class="fi-dot"></div> Staatl. Förderdokumentation — strukturiert & unterschriftsreif</li>
-          <li><div class="fi-dot"></div> Lehrkräfte-Login: Fächer & Schüler selbst verwalten</li>
-          <li><div class="fi-dot"></div> Digitale Unterschrift der Lehrkraft je Stunde</li>
-          <li><div class="fi-dot"></div> Honorarkraft-Modul: Rechnung per Klick (1x/Monat)</li>
-          <li><div class="fi-dot"></div> Admin-Dashboard: Chef sieht alles zentral</li>
+          <li><div class="fi-dot"></div> Lehrkräfte-Login: Schüler & Stunden selbst verwalten</li>
+          <li><div class="fi-dot"></div> Honorarkraft-Modul: Rechnung per Klick (1×/Monat)</li>
+          <li><div class="fi-dot"></div> Admin-Dashboard: Alles zentral im Blick</li>
           <li><div class="fi-dot"></div> DSGVO-konform, rollenbasierte Zugriffsrechte</li>
         </ul>
       </div>
@@ -625,76 +958,294 @@ footer {
         </div>
         <div class="visual-item">
           <div class="visual-icon">📋</div>
-          <div class="visual-item-text"><strong>Förderdoku</strong>Staatlich anerkannte Nachweise automatisch strukturiert</div>
+          <div class="visual-item-text"><strong>BuT-Förderdoku</strong>Staatlich anerkannte Nachweise automatisch strukturiert</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRINT -->
-<section class="print-section">
+<!-- ══════════════════════════════════════════
+     MARKETING STRATEGIE
+══════════════════════════════════════════ -->
+<section class="mkt-hero" id="marketing">
   <div class="wrap">
-    <div class="label">Design & Print</div>
-    <h2>Ihr Auftritt<br>auch <em>offline.</em></h2>
-    <p class="lead">Professionelles Flyer-Design und Druck — für Schulen, Arztpraxen und Beratungsstellen in Hannover.</p>
-    <div class="print-grid reveal">
-      <div class="print-card">
-        <div class="print-type">Flyer Design</div>
-        <div class="print-qty">Design für alle Formate</div>
-        <p class="print-desc">Professionelles druckfertiges Design für A5 und A4. Einheitlich, ansprechend, zur Website passend.</p>
-      </div>
-      <div class="print-card">
-        <div class="print-type">A5 Flyer · Druck</div>
-        <div class="print-qty">1.000 Stück</div>
-        <p class="print-desc">Ideal für lokale Verteilung. Hohe Auflage für breite Streuung in Hannover und Umgebung.</p>
-      </div>
-      <div class="print-card">
-        <div class="print-type">A4 Flyer · Druck</div>
-        <div class="print-qty">500 Stück</div>
-        <p class="print-desc">Für Aushänge und Auslagen. 500 statt 250 Stück — nur 15 € mehr für doppelte Menge.</p>
-        <span class="print-tip">Empfehlung: 500 statt 250 Stk.</span>
+    <div class="label" style="color: rgba(200,169,110,0.7);">
+      <span style="width:28px;height:1px;background:var(--gold);display:block;"></span>
+      Marketing Strategie
+    </div>
+    <h2 style="color:var(--paper);">Hannover soll wissen:<br><em style="color:var(--gold);">MJ Lernförderung</em><br>ist die erste Wahl.</h2>
+    <p class="lead" style="color:rgba(250,248,245,0.5); max-width:600px;">Eltern mit Förderkindern suchen intensiv — sie googeln, sie scrollen auf Instagram, sie schauen Reels. Wer dort nicht präsent ist, existiert für sie nicht.</p>
+
+      <div class="mkt-usp-block">
+        <div class="mkt-usp-item">
+          <h5>USP #1 — Spezialisierung</h5>
+          <p>LRS, Dyskalkulie, ADHS, Autismus-Spektrum, Lernblockaden — das kann nicht jedes Institut. Das ist ein riesiger Wettbewerbsvorteil der kommuniziert werden muss.</p>
+        </div>
+        <div class="mkt-usp-item">
+          <h5>USP #2 — BuT-Förderung</h5>
+          <p>Kostenlose Nachhilfe durch Bildung und Teilhabe. Eltern mit Anspruch wissen das oft nicht. Wer es kommuniziert, gewinnt genau diese Zielgruppe exklusiv.</p>
+        </div>
+        <div class="mkt-usp-item">
+          <h5>USP #3 — Flexibilität</h5>
+          <p>Einzel, Gruppe, online, vor Ort — diese Kombination ist selten. Damit wird aus jedem Lead ein passendes Angebot.</p>
+        </div>
+        <div class="mkt-usp-item">
+          <h5>USP #4 — Persönlichkeit</h5>
+          <p>Eltern von Förderkindern wollen kein anonymes Institut. Sie wollen ein Gesicht, eine Geschichte, Vertrauen. Content macht das möglich.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MARKETING -->
-<section class="leistung">
+<!-- PHASEN -->
+<section class="mkt-phasen">
   <div class="wrap">
-    <div class="label">Leistung 03 & 04</div>
-    <h2>Marketing das<br><em>Kunden bringt.</em></h2>
-    <p class="lead">Social Media Strategie und bezahlte Werbung — damit Eltern und Schüler in Hannover Sie finden, bevor sie die Konkurrenz finden.</p>
+    <div class="label">Der Plan</div>
+    <h2>3 Phasen für<br><em>nachhaltiges Wachstum.</em></h2>
+    <p class="lead">Kein Strohfeuer. Eine Strategie die aufbaut, skaliert und Monat für Monat mehr bringt.</p>
+    <div class="phase-grid reveal">
+      <div class="phase-card">
+        <div class="phase-num">01</div>
+        <span class="phase-tag">Monat 1–2</span>
+        <div class="phase-title">Fundament<br>aufbauen</div>
+        <div class="phase-duration">Sichtbarkeit schaffen</div>
+        <ul class="phase-items">
+          <li>Website live mit SEO-Optimierung</li>
+          <li>Google Business Profil komplett aufsetzen & optimieren</li>
+          <li>Instagram Profil professionalisieren</li>
+          <li>BuT-Förderung als zentrales Thema positionieren</li>
+          <li>Erste 8 Content-Pieces (Reels + Posts)</li>
+          <li>Google Ads Setup für Hannover</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">02</div>
+        <span class="phase-tag">Monat 2–4</span>
+        <div class="phase-title">Reichweite<br>aufbauen</div>
+        <div class="phase-duration">Vertrauen & Leads</div>
+        <ul class="phase-items">
+          <li>Regelmäßiger Content: 3–4 Posts/Woche</li>
+          <li>Eltern-Zielgruppe auf Meta Ads ansprechen</li>
+          <li>Facebook-Gruppen (Eltern Hannover) bespielen</li>
+          <li>Erste Testimonials & Erfolgsgeschichten</li>
+          <li>Google Reviews aktiv aufbauen</li>
+          <li>Retargeting für Website-Besucher</li>
+        </ul>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">03</div>
+        <span class="phase-tag">Monat 4+</span>
+        <div class="phase-title">Skalieren &<br>automatisieren</div>
+        <div class="phase-duration">Wachstum & Expansion</div>
+        <ul class="phase-items">
+          <li>Ads-Budget auf Basis von Daten optimieren</li>
+          <li>Schul-Kooperationen (Aushänge, Empfehlungen)</li>
+          <li>B2B Empfehlungspartner-Netzwerk: Kinderärzte, Therapeuten & Schulen — aktiv akquiriert durch SMY Agency</li>
+          <li>Zweiten Standort vorbereiten (Marketing-Infrastruktur)</li>
+          <li>E-Mail Nurturing für Interessenten</li>
+          <li>Saisonale Kampagnen (Schuljahresstart, Prüfungszeit)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); margin-top: 60px;">
+<!-- KANÄLE -->
+<section class="mkt-kanaele">
+  <div class="wrap">
+    <div class="label">Kanäle & Maßnahmen</div>
+    <h2>Wo und wie wir<br><em>Eltern erreichen.</em></h2>
+    <p class="lead">Jeder Kanal hat eine klare Rolle. Kein Gießkannenprinzip — gezielte Ansprache der richtigen Menschen zur richtigen Zeit.</p>
 
-      <div style="background: var(--paper); padding: 48px 40px;">
-        <span class="leistung-tag">Leistung 03</span>
-        <h3 style="font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 2.5vw, 32px); line-height: 1.2; margin-bottom: 16px;">Social Media<br>Strategie</h3>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px;">Sie haben bereits jemanden vor der Kamera und fürs Schneiden — wir liefern die Ideen, den Plan und das Briefing. Kreativer Kopf im Hintergrund.</p>
-        <ul class="feature-list">
-          <li><div class="fi-dot"></div> Monatlicher Content-Plan (Themen, Hooks, Formate)</li>
-          <li><div class="fi-dot"></div> Briefings für Drehs & Reels</li>
-          <li><div class="fi-dot"></div> 1x Strategiecall pro Monat</li>
-          <li><div class="fi-dot"></div> Plattform-Fokus: Instagram & TikTok</li>
-          <li><div class="fi-dot"></div> Zielgruppe: Eltern + Schüler 14+</li>
+    <!-- 1. GOOGLE -->
+    <div class="kanal-card">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:12px;">Schritt 1 — Gefunden werden</div>
+        <div class="kanal-header">
+          <div class="kanal-icon">🔍</div>
+          <div class="kanal-title-block">
+            <h4>Google Ads + SEO</h4>
+            <span>Aktive Suche abfangen</span>
+          </div>
+        </div>
+        <div class="kanal-ziel">Eltern die gerade googeln: „Nachhilfe Hannover ADS" sind deine heißesten Leads. Hier kaufen sie — die suchen aktiv nach dir.</div>
+        <ul class="kanal-items">
+          <li><div class="fi-dot"></div> Keywords: Nachhilfe Hannover, ADS Nachhilfe, Autismus Lernförderung, BuT Nachhilfe</li>
+          <li><div class="fi-dot"></div> Google Business: 5-Sterne Strategie, Fotos, aktuelle Posts</li>
+          <li><div class="fi-dot"></div> Lokales SEO: Hannover + Stadtteile als Zielregion</li>
+          <li><div class="fi-dot"></div> Empfohlen: 400 €/Monat Budget direkt an Google</li>
         </ul>
       </div>
 
-      <div style="background: var(--warm); padding: 48px 40px;">
-        <span class="leistung-tag">Leistung 04</span>
-        <h3 style="font-family: 'Fraunces', serif; font-weight: 300; font-size: clamp(22px, 2.5vw, 32px); line-height: 1.2; margin-bottom: 16px;">Ads Beratung<br>Google & Meta</h3>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px;">Strategie, Setup und laufende Begleitung für bezahlte Werbung. Eltern finden Sie über Google — Schüler und Eltern über Meta.</p>
-        <ul class="feature-list">
-          <li><div class="fi-dot"></div> Ads-Strategie & Kampagnen-Setup</li>
-          <li><div class="fi-dot"></div> Google Ads — Eltern (aktive Suche)</li>
-          <li><div class="fi-dot"></div> Meta Ads — Eltern & Schüler 14+</li>
-          <li><div class="fi-dot"></div> Monatliches Reporting & Optimierung</li>
-          <li><div class="fi-dot"></div> Empfohlenes Ads-Budget: 700 €/Monat*</li>
+      <!-- 2. META ADS -->
+      <div class="kanal-card">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:12px;">Schritt 2 — Awareness schaffen</div>
+        <div class="kanal-header">
+          <div class="kanal-icon">💰</div>
+          <div class="kanal-title-block">
+            <h4>Meta Ads</h4>
+            <span>Eltern ansprechen bevor sie suchen</span>
+          </div>
+        </div>
+        <div class="kanal-ziel">Nicht jeder googelt. Meta Ads sprechen Eltern in Hannover an bevor sie überhaupt wissen dass sie dich brauchen — perfekt für BuT-Förderung als Hook.</div>
+        <ul class="kanal-items">
+          <li><div class="fi-dot"></div> Zielgruppe: Eltern 28–55, Hannover, Schulkinder</li>
+          <li><div class="fi-dot"></div> Hook: „Wusstest du, dass die Nachhilfe deines Kindes kostenlos sein kann?"</li>
+          <li><div class="fi-dot"></div> Retargeting: Website-Besucher nochmal ansprechen</li>
+          <li><div class="fi-dot"></div> Empfohlen: 300 €/Monat Budget direkt an Meta</li>
         </ul>
-        <p style="font-size: 11px; color: var(--muted); margin-top: 16px;">* Google 400 € + Meta 300 € — direkt an die Plattformen, nicht an SMY Agency</p>
       </div>
 
+      <!-- 3. INSTAGRAM -->
+      <div class="kanal-card">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:12px;">Schritt 3 — Vertrauen aufbauen</div>
+        <div class="kanal-header">
+          <div class="kanal-icon">📱</div>
+          <div class="kanal-title-block">
+            <h4>Instagram</h4>
+            <span>Persönlichkeit zeigen</span>
+          </div>
+        </div>
+        <div class="kanal-ziel">Eltern scrollen und prüfen: Wer steckt hinter dem Institut? Wer erklärt wie ADHS das Lernen beeinflusst, wird zur Autorität. Du musst nicht filmen — wir liefern den Plan.</div>
+        <ul class="kanal-items">
+          <li><div class="fi-dot"></div> 3–4 Posts/Woche: Reels, Karussells, Stories</li>
+          <li><div class="fi-dot"></div> Content-Säulen: Wissen, Einblick, Erfolg, Angebot</li>
+          <li><div class="fi-dot"></div> Hooks die performen: „Das macht ADS beim Lernen"</li>
+          <li><div class="fi-dot"></div> SMY liefert Plan + Briefings — du setzt um</li>
+        </ul>
+      </div>
+
+      <!-- 4. B2B -->
+      <div class="kanal-card">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:12px;">Schritt 4 — Empfehlungen generieren</div>
+        <div class="kanal-header">
+          <div class="kanal-icon">🤝</div>
+          <div class="kanal-title-block">
+            <h4>B2B Partneraufbau</h4>
+            <span>Ärzte & Schulen als Multiplikatoren</span>
+          </div>
+        </div>
+        <div class="kanal-ziel">SMY Agency akquiriert aktiv Kinderärzte, Ergotherapeuten und Schulen in Hannover — die empfehlen dich an ihre Patienten weiter. Du machst nichts, die Leads kommen zu dir.</div>
+        <ul class="kanal-items">
+          <li><div class="fi-dot"></div> Kaltakquise bei Kinderärzten, Therapeuten & Logopäden</li>
+          <li><div class="fi-dot"></div> Flyer-Kooperation: dein Material liegt in deren Praxis aus</li>
+          <li><div class="fi-dot"></div> Schulen: Aushänge, Lehrerempfehlungen, Infoabende</li>
+          <li><div class="fi-dot"></div> Komplett durch SMY — du musst nichts tun</li>
+        </ul>
+      </div>
+
+      <!-- 5. EMAIL & WHATSAPP -->
+      <div class="kanal-card">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;margin-bottom:12px;">Schritt 5 — Anfragen zu Buchungen machen</div>
+        <div class="kanal-header">
+          <div class="kanal-icon">✉️</div>
+          <div class="kanal-title-block">
+            <h4>E-Mail & WhatsApp</h4>
+            <span>Interessenten konvertieren</span>
+          </div>
+        </div>
+        <div class="kanal-ziel">Wer anfrägt aber noch nicht bucht, geht verloren — außer du hast eine Nachfass-Strategie. SMY schreibt die Mails und Vorlagen, du antwortest persönlich.</div>
+        <ul class="kanal-items">
+          <li><div class="fi-dot"></div> E-Mail Nurturing: automatische Sequenz für neue Anfragen</li>
+          <li><div class="fi-dot"></div> Fertige Antwort-Templates für häufige Eltern-Fragen</li>
+          <li><div class="fi-dot"></div> WhatsApp Business: Auto-Antworten & professioneller Erstkontakt</li>
+          <li><div class="fi-dot"></div> Du antwortest selbst — wir liefern dir die Vorlagen</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT IDEEN -->
+<section class="mkt-content">
+  <div class="wrap">
+    <div class="label" style="color:rgba(200,169,110,0.7);">
+      <span style="width:28px;height:1px;background:var(--gold);display:block;"></span>
+      Content-Ideen
+    </div>
+    <h2 style="color:var(--paper);">Content der <em style="color:var(--gold);">performt.</em></h2>
+    <p class="lead" style="color:rgba(250,248,245,0.5);">Beispiel-Themen für die ersten Wochen — jedes davon spricht Eltern von Förderkindern direkt an.</p>
+
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>Thema / Hook</th>
+          <th>Format</th>
+          <th>Kanal</th>
+          <th>Warum es funktioniert</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>„dein Kind hat ADHS? Das macht es beim Lernen anders."</strong>Erklärung in 60 Sekunden</td>
+          <td>Reel</td>
+          <td><span class="content-tag tag-both">IG + TK</span></td>
+          <td>Eltern fühlen sich verstanden — hohes Share-Potenzial</td>
+        </tr>
+        <tr>
+          <td><strong>„Die Nachhilfe deines Kindes kann kostenlos sein."</strong>BuT-Förderung erklärt</td>
+          <td>Karussell</td>
+          <td><span class="content-tag tag-ig">Instagram</span></td>
+          <td>Massiver Hook — die meisten wissen das nicht</td>
+        </tr>
+        <tr>
+          <td><strong>„So läuft eine erste Stunde bei uns ab"</strong>Einblick hinter die Kulissen</td>
+          <td>Reel</td>
+          <td><span class="content-tag tag-ig">Instagram</span></td>
+          <td>Vertrauen aufbauen, Hemmschwelle senken</td>
+        </tr>
+        <tr>
+          <td><strong>„3 Zeichen dass dein Kind Nachhilfe braucht"</strong></td>
+          <td>Reel</td>
+          <td><span class="content-tag tag-ig">Instagram</span></td>
+          <td>Klassischer Ratgeber-Hook mit hoher Reichweite</td>
+        </tr>
+        <tr>
+          <td><strong>„Schüler vorher / nachher — 3 Monate MJ Lernförderung"</strong></td>
+          <td>Karussell</td>
+          <td><span class="content-tag tag-ig">Instagram</span></td>
+          <td>Social Proof ist das stärkste Verkaufsargument</td>
+        </tr>
+        <tr>
+          <td><strong>„Was Autismus mit dem Lernen macht — und wie wir damit umgehen"</strong></td>
+          <td>Reel</td>
+          <td><span class="content-tag tag-ig">Instagram</span></td>
+          <td>Nische mit wenig Konkurrenz — enorme Relevanz für Zielgruppe</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="mkt-roi">
+  <div class="wrap">
+    <div class="label">Was du erwarten kannst</div>
+    <h2>Realistische Ziele<br><em>in 90 Tagen.</em></h2>
+    <p class="lead">Basierend auf vergleichbaren lokalen Bildungsanbietern mit ähnlicher Ausgangslage.</p>
+    <div class="roi-grid reveal">
+      <div class="roi-card">
+        <div class="roi-num">+3–8</div>
+        <div class="roi-label">Neue Schüler/Monat</div>
+        <p class="roi-desc">Durch Google Ads + Website allein. Bei 150 €/Monat pro Schüler = bis zu 1.200 € Mehrumsatz monatlich.</p>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">Top 3</div>
+        <div class="roi-label">Google Maps Hannover</div>
+        <p class="roi-desc">Optimiertes Google Business Profil mit aktiven Reviews. Lokale Suche = direktste Conversion.</p>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">500+</div>
+        <div class="roi-label">Instagram Follower</div>
+        <p class="roi-desc">In den ersten 60 Tagen durch gezielten Content über Förderkinder und BuT. Follower = warme Leads.</p>
+      </div>
+      <div class="roi-card">
+        <div class="roi-num">×3</div>
+        <div class="roi-label">Anfragen vs. heute</div>
+        <p class="roi-desc">Kombination aus SEO, Ads und Social bringt deutlich mehr Erstkontakte als ohne digitale Strategie.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -702,143 +1253,159 @@ footer {
 <!-- PREISE -->
 <section class="price-section" id="preise">
   <div class="wrap">
-    <div class="label" style="color: rgba(200,169,110,0.7);">
-      <span style="background: var(--gold); width: 28px; height: 1px; display: block;"></span>
+    <div class="label" style="color:rgba(200,169,110,0.7);">
+      <span style="background:var(--gold);width:28px;height:1px;display:block;"></span>
       Investition
     </div>
-    <h2 style="color: var(--paper);">Klare Preise.<br><em style="color: var(--gold);">Kein Overhead.</em></h2>
-    <p class="lead" style="color: rgba(250,248,245,0.45);">Hosting inklusive. Ads-Budget geht direkt an Google & Meta — nicht an uns.</p>
-  </div>
+    <h2 style="color:var(--paper);">Klare Preise.<br><em style="color:var(--gold);">Kein Overhead.</em></h2>
+    <p class="lead" style="color:rgba(250,248,245,0.45);">Ads-Budget geht direkt an Google & Meta — nicht an SMY Agency.</p>
 
-  <div style="max-width: 1100px; margin: 60px auto 0; padding: 0 48px;">
-
-    <!-- ZWEI SPALTEN: Einmalig | Monatlich -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(255,255,255,0.06);">
+  <div style="max-width:1100px;margin:60px auto 0;padding:0 48px;">
+    <div class="price-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,0.06);">
 
       <!-- EINMALIG -->
-      <div style="background: var(--ink); padding: 52px 44px;">
-        <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 32px;">Einmalig</div>
+      <div style="background:var(--ink);padding:52px 44px;">
+        <div style="font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;">Einmalig</div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
           <div>
-            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Interne Plattform</div>
-            <div style="font-size: 12px; color: rgba(250,248,245,0.4); margin-top: 2px;">Schüler, Docs, Lehrkräfte, Honorare</div>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Interne Plattform</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.4);margin-top:2px;">Schüler, Docs, Lehrkräfte, Honorare</div>
           </div>
-          <div style="font-size: 16px; color: rgba(250,248,245,0.8);">3.500 €</div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.8);">3.500 €</div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
           <div>
-            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Flyer Design + Druck</div>
-            <div style="font-size: 12px; color: rgba(250,248,245,0.4); margin-top: 2px;">Design + A5 (1.000 Stk.) + A4 (500 Stk.)</div>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Google Ads Setup</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.4);margin-top:2px;">Einmalige Einrichtung des Google Ads Kontos</div>
           </div>
-          <div style="font-size: 16px; color: rgba(250,248,245,0.8);">340 €</div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.8);">350 €</div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.12);">
-          <div style="font-size: 13px; color: rgba(250,248,245,0.4);">Zwischensumme</div>
-          <div style="font-size: 14px; color: rgba(250,248,245,0.4); text-decoration: line-through;">3.840 €</div>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
-          <div style="font-size: 13px; color: #86efac;">10% Rabatt</div>
-          <div style="font-size: 14px; color: #86efac;">− 384 €</div>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 24px;">
-          <div style="font-size: 13px; color: rgba(250,248,245,0.4);">Sie zahlen</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
           <div>
-            <span style="font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300; color: var(--paper);">3.456</span>
-            <span style="font-size: 14px; color: rgba(250,248,245,0.4);"> €</span>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Meta Ads Setup</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.4);margin-top:2px;">Einmalige Einrichtung des Facebook/Instagram Ads Kontos</div>
           </div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.8);">350 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Flyer Design + Druck</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.4);margin-top:2px;">Design + A5 (1.000 Stk.) + A4 (500 Stk.)</div>
+          </div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.8);">340 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.12);">
+          <div style="font-size:13px;color:rgba(250,248,245,0.4);">Zwischensumme</div>
+          <div style="font-size:14px;color:rgba(250,248,245,0.4);text-decoration:line-through;">4.540 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:13px;color:#86efac;">10% Paket-Rabatt</div>
+          <div style="font-size:14px;color:#86efac;">− 454 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:24px;">
+          <div style="font-size:13px;color:rgba(250,248,245,0.4);">du zahlst</div>
+          <div>
+            <span style="font-family:'Fraunces',serif;font-size:44px;font-weight:300;color:var(--paper);">4.086</span>
+            <span style="font-size:14px;color:rgba(250,248,245,0.4);"> €</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:14px 16px;background:rgba(134,239,172,0.08);border:1px solid rgba(134,239,172,0.2);border-radius:4px;">
+          <div style="font-size:12px;color:#86efac;font-weight:500;margin-bottom:4px;">✓ Ratenzahlung möglich</div>
+          <div style="font-size:12px;color:rgba(250,248,245,0.4);">6 × 681 € — auf Wunsch aufgeteilt über 6 Monate</div>
         </div>
       </div>
 
       <!-- MONATLICH -->
-      <div style="background: var(--green); padding: 52px 44px;">
-        <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,248,245,0.6); margin-bottom: 32px;">Monatlich</div>
+      <div style="background:var(--green);padding:52px 44px;">
+        <div style="font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(250,248,245,0.6);margin-bottom:32px;">Monatlich</div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
           <div>
-            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Öffentliche Website</div>
-            <div style="font-size: 12px; color: rgba(250,248,245,0.5); margin-top: 2px;">Hosting & Updates inklusive · 12 Monate</div>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Öffentliche Website</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.5);margin-top:2px;">Hosting & Updates · 12 Monate Mindestlaufzeit</div>
           </div>
-          <div style="font-size: 16px; color: rgba(250,248,245,0.9);">150 €</div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.9);">150 €</div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
           <div>
-            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Social Media Strategie</div>
-            <div style="font-size: 12px; color: rgba(250,248,245,0.5); margin-top: 2px;">Content-Plan, Briefings, Strategiecall</div>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Social Media Strategie</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.5);margin-top:2px;">Content-Plan, Briefings, 1× Strategiecall/Monat</div>
           </div>
-          <div style="font-size: 16px; color: rgba(250,248,245,0.9);">500 €</div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.9);">500 €</div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
           <div>
-            <div style="font-size: 15px; color: var(--paper); font-weight: 500;">Ads Beratung</div>
-            <div style="font-size: 12px; color: rgba(250,248,245,0.5); margin-top: 2px;">Google + Meta · Setup & Optimierung</div>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">Ads Betreuung</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.5);margin-top:2px;">Google + Meta · laufende Optimierung & Reporting</div>
           </div>
-          <div style="font-size: 16px; color: rgba(250,248,245,0.9);">600 €</div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.9);">200 €</div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.15);">
-          <div style="font-size: 13px; color: rgba(250,248,245,0.5);">Zwischensumme</div>
-          <div style="font-size: 14px; color: rgba(250,248,245,0.5); text-decoration: line-through;">1.250 €</div>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
-          <div style="font-size: 13px; color: #86efac;">10% Rabatt</div>
-          <div style="font-size: 14px; color: #86efac;">− 125 €</div>
-        </div>
-
-        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 24px;">
-          <div style="font-size: 13px; color: rgba(250,248,245,0.5);">Sie zahlen</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
           <div>
-            <span style="font-family: 'Fraunces', serif; font-size: 44px; font-weight: 300; color: var(--paper);">1.125</span>
-            <span style="font-size: 14px; color: rgba(250,248,245,0.5);"> €/Monat</span>
+            <div style="font-size:15px;color:var(--paper);font-weight:500;">B2B Cold Outreach</div>
+            <div style="font-size:12px;color:rgba(250,248,245,0.5);margin-top:2px;">Cold Emails an Kinderärzte, Therapeuten & Schulen in Hannover</div>
+          </div>
+          <div style="font-size:16px;color:rgba(250,248,245,0.9);">250 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.15);">
+          <div style="font-size:13px;color:rgba(250,248,245,0.5);">Zwischensumme</div>
+          <div style="font-size:14px;color:rgba(250,248,245,0.5);text-decoration:line-through;">1.100 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.1);">
+          <div style="font-size:13px;color:#86efac;">10% Paket-Rabatt</div>
+          <div style="font-size:14px;color:#86efac;">− 110 €</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:baseline;padding-top:24px;">
+          <div style="font-size:13px;color:rgba(250,248,245,0.5);">du zahlst</div>
+          <div>
+            <span style="font-family:'Fraunces',serif;font-size:44px;font-weight:300;color:var(--paper);">990</span>
+            <span style="font-size:14px;color:rgba(250,248,245,0.5);"> €/Monat</span>
           </div>
         </div>
       </div>
-
     </div>
 
-    <!-- ADS BUDGET HINWEIS -->
-    <div style="background: #141210; padding: 20px 44px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-      <div style="font-size: 13px; color: rgba(250,248,245,0.4);">+ Ads-Budget direkt an Google & Meta (nicht an SMY Agency)</div>
-      <div style="font-size: 15px; font-weight: 500; color: rgba(250,248,245,0.6);">Google 400 € + Meta 300 € = <span style="color: var(--paper);">700 €/Monat</span></div>
+    <div style="background:#141210;padding:20px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:13px;color:rgba(250,248,245,0.4);">+ Ads-Budget direkt an Google & Meta (nicht an SMY Agency)</div>
+      <div style="font-size:15px;font-weight:500;color:rgba(250,248,245,0.6);">Google 400 € + Meta 300 € = <span style="color:var(--paper);">700 €/Monat</span></div>
     </div>
-
   </div>
 </section>
 
 <!-- KONTAKT -->
-<section class="contact-section">
+<section class="contact-section" id="kontakt">
   <div class="wrap">
     <div class="label">Nächste Schritte</div>
     <h2>So geht es<br><em>weiter.</em></h2>
-    <div class="contact-inner reveal">
-      <div>
-        <div class="step">
-          <div class="step-num">01</div>
-          <div><div class="step-title">Erstgespräch</div><p class="step-text">Wir klären Ihre genauen Anforderungen, Wünsche und den Zeitplan. Kostenfrei und unverbindlich.</p></div>
-        </div>
         <div class="step">
           <div class="step-num">02</div>
-          <div><div class="step-title">Flyer Design (Woche 1)</div><p class="step-text">Design-Entwürfe für A5 und A4, Freigabe, Druckauftrag wird gestartet.</p></div>
+          <div><div class="step-title">Website & Google (Woche 1–2)</div><p class="step-text">Website live, Google Business optimiert, erste Ads laufen. Sichtbarkeit ab Tag 1.</p></div>
         </div>
         <div class="step">
           <div class="step-num">03</div>
-          <div><div class="step-title">Website & Plattform (Woche 2–3)</div><p class="step-text">Öffentliche Website geht live. Plattform wird mit allen Modulen aufgebaut und getestet.</p></div>
+          <div><div class="step-title">Content & Plattform (Woche 2–3)</div><p class="step-text">Erster Content-Plan, Briefings für Reels. Interne Plattform wird aufgebaut und getestet.</p></div>
         </div>
         <div class="step">
           <div class="step-num">04</div>
-          <div><div class="step-title">Übergabe & Einweisung (Woche 4)</div><p class="step-text">Alles live. Ihr Team wird eingewiesen. Flyer sind fertig. Sie sind startklar.</p></div>
+          <div><div class="step-title">Vollbetrieb (Woche 4)</div><p class="step-text">Alles läuft. Du siehst die ersten Anfragen, ersten Follower-Zuwächse, erstes Reporting.</p></div>
         </div>
       </div>
       <div class="contact-info">
         <div class="contact-info-title">Bereit loszulegen?</div>
-        <p class="contact-info-sub">Schreiben Sie uns oder rufen Sie direkt an — wir melden uns innerhalb von 24 Stunden.</p>
+        <p class="contact-info-sub">Schreib uns oder ruf direkt an — wir melden uns innerhalb von 24 Stunden.</p>
         <div class="contact-detail"><div class="c-dot"></div> info@smyagency.de</div>
         <div class="contact-detail"><div class="c-dot"></div> +49 1523 6137216</div>
         <div class="contact-detail"><div class="c-dot"></div> smyagency.de</div>
@@ -848,10 +1415,9 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">SMY Agency</div>
-  <div class="footer-note">Dieses Angebot ist vertraulich und wurde individuell erstellt · info@smyagency.de</div>
+  <div class="footer-note">Dieses Angebot ist vertraulich und wurde individuell für MJ Lernförderung erstellt · info@smyagency.de</div>
 </footer>
 
 <script>
@@ -862,6 +1428,5 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
